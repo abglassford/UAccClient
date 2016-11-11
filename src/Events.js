@@ -12,7 +12,7 @@ class Events extends Component {
       eventData : [],
       view: 'Calendar'
      }
-    ajax('http://localhost:8888/api/events')
+    ajax('https://young-badlands-52676.herokuapp.com/api/events')
     .done((data) => {
       this.setState({eventData: data})
     })
