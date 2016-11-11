@@ -16,10 +16,21 @@ class Groups extends Component {
   }
   render() {
     return (
-      <div className="Groups">
+      <div className="Groups col-md-6 col-md-offset-3">
+      <div className="row">
+        <button className="pull-right">Create New</button>
+      </div>
+      <br/>
         <ul>
           {this.state.groupData.map((group, i) => {
-            return <li key={i}>{group.name}</li>
+            return <li key={i}><div className="splash jumbotron jumbotron-fluid">
+              <div className="container">
+                <h1 className="display-3">{group.name}</h1>
+                <button>Update</button>
+                <button>Delete</button>
+              </div>
+            </div>
+            </li>
           })}
         </ul>
       </div>

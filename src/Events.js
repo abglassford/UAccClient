@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
 import {ajax} from 'jquery';
-import { Link } from 'react-router'
-
 
 class Events extends Component {
 
@@ -10,7 +8,6 @@ class Events extends Component {
     super(props)
     this.state = {
       eventData : [],
-      view: 'Calendar'
      }
     ajax('https://young-badlands-52676.herokuapp.com/api/events')
     .done((data) => {
@@ -21,16 +18,17 @@ class Events extends Component {
     })
   }
 
-  calendarView() {
-    this.state.view === 'Calendar' ? this.setState({view: 'Events'}) : this.setState({view: 'Calendar'})
-  }
-
   render() {
     return (
-      <div className="Events col-md-6 col-md-offset-3">
-      <Link to={this.state.view}><button className="btn btn-primary" onClick={this.calendarView.bind(this)}>{this.state.view}</button></Link>
+      <div className="Events col-md-8 col-md-offset-2">
+      <div className="row">
+          <div className="pull-right">
+            <button>Create New</button>
+          </div>
+      </div>
+      <br/>
         <table className="table">
-        <tbody>
+        <tbody className="table-body">
           <tr>
             <th>Description</th>
             <th>Geolocation</th>
@@ -39,12 +37,14 @@ class Events extends Component {
             <th>Attending</th>
           </tr>
           {this.state.eventData.map((event, i) => {
-            return <tr key={i}>
-            <td>{event.description}</td>
-            <td>{event.location}</td>
-            <td>{event.event_time}</td>
-            <td>{event.capacity}</td>
-            <td>{event.attending}</td>
+            return <tr key={i} className="event-info">
+            <td><div className="desc"><p>{event.description}</p></div></td>
+            <td><div className="loc"><p>{event.location}</p></div></td>
+            <td><div className="time"><p>{event.event_time}</p></div></td>
+            <td><div className="cap"><p>{event.capacity}</p></div></td>
+            <td><div className="att"><p>{event.attending}</p></div></td>
+            <button>Update</button>
+            <button>Delete</button>
             </tr>
           })}
           </tbody>

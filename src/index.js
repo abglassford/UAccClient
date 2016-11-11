@@ -6,6 +6,7 @@ import Users from './Users';
 import Events from './Events';
 import Home from './Home';
 import Groups from './Groups';
+import newUser from './newUser';
 
 import { Router, Route, browserHistory } from 'react-router'
 
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Route path="Users" component={Users}></Route>
       <Route path="Events" component={Events}></Route>
       <Route path="Groups" component={Groups}></Route>
+      <Route path="newUser" component={newUser}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

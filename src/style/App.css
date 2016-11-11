@@ -18,7 +18,30 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ul, li, ol {
+  list-style-type: none;
+}
+.user-info {
+  background-color: rgba(0, 181, 121, 0.49);
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 5px rgb(69, 69, 69);
+  height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.table-body {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.desc, .loc, .time, .cap, .att {
+  height: 75px;
+  border-radius: 5px;
+  background-color: rgba(245, 86, 114, 0.73);
+  box-shadow: 1px 1px 5px rgb(69, 69, 69);
+  line-height: 75px;
+  vertical-align: middle !important;
+  text-align: center;
+  font-size: 15px;
 }
