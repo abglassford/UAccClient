@@ -20,7 +20,7 @@ class Users extends Component {
   handleDelete(id) {
     ajax({
       method: 'DELETE',
-      url: `https://young-badlands-52676.herokuapp.com/api/users/${id}`,
+      url: 'https://young-badlands-52676.herokuapp.com/api/users/' + id,
       contentType: 'application/json'
     }).done((data) => {
       console.log(data);
