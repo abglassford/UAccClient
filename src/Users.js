@@ -23,6 +23,10 @@ class Users extends Component {
       url: 'https://young-badlands-52676.herokuapp.com/api/users/' + id,
       contentType: 'application/json'
     }).done((data) => {
+      let newArr = this.state.userData.filter((item) => {
+        return item.id !== id
+      })
+      this.setState({userData: newArr})
       console.log(data);
     }).catch((err) => {
       console.log(err);
