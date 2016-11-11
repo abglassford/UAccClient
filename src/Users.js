@@ -6,12 +6,25 @@ import {Link} from 'react-router';
 class Users extends Component {
   constructor(props) {
     super(props)
+    this.handleDelete = this.handleDelete.bind(this)
     this.state = { userData : [] }
     ajax('https://young-badlands-52676.herokuapp.com/api/users')
     .done((data) => {
       this.setState({userData: data})
     })
     .catch((err) => {
+      console.log(err);
+    })
+  }
+
+  handleDelete(id) {
+    ajax({
+      method: 'DELETE',
+      url: `https://young-badlands-52676.herokuapp.com/api/users/${id}`,
+      contentType: 'application/json'
+    }).done((data) => {
+      console.log(data);
+    }).catch((err) => {
       console.log(err);
     })
   }
@@ -33,7 +46,7 @@ class Users extends Component {
               <p><strong>Email: </strong>{user.email}</p>
               <p><strong>Bio: </strong>{user.bio}</p>
               <button>Update</button>
-              <button>Delete</button>
+              <button onClick={() => this.handleDelete(user.id)}>Delete</button>
             </div>
             </li>
           })}
